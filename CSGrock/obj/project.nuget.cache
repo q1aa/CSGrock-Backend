@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "p6Rq5lVHkbFlN9iBtH2jz43SSPNWcJKhHKW7gpbY9GyFuC6EseGqlZoEMwNecF9iQ9PrF1auQueJ2IeNImmnGg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend\\CSGrock\\CSGrock.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
