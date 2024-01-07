@@ -486,11 +486,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend\\CSGrock\\CSGrock.csproj",
+      "projectUniqueName": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend-main\\CSGrock\\CSGrock.csproj",
       "projectName": "CSGrock",
-      "projectPath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend\\CSGrock\\CSGrock.csproj",
+      "projectPath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend-main\\CSGrock\\CSGrock.csproj",
       "packagesPath": "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend\\CSGrock\\obj\\",
+      "outputPath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend-main\\CSGrock\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sandra Schmidt\\AppData\\Roaming\\NuGet\\NuGet.Config",

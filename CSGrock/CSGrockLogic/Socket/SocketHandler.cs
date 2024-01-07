@@ -97,6 +97,7 @@ namespace CSGrock.CSGrockLogic.Socket
                 else if (result.MessageType == WebSocketMessageType.Close)
                 {
                     await socketConnection.Socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
+                    StorageUtil.app.Logger.LogInformation($"Socket with UUID {socketConnection.UUID} closed");
                 }
             }
         }

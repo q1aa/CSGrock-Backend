@@ -89,26 +89,30 @@ namespace CSGrock
                 else if (requestPath.StartsWith("/send/"))
                 {
                     requestID = requestPath.Split("/")[2];
-                    foreach (var socketConnection in StorageUtil.allSockettConnections)
+                    //check if the id is in the list
+                    var socketConnection = StorageUtil.allSockettConnections.Find(x => x.UUID.ToString() == requestID);
+                    if (socketConnection == null)
                     {
-                        if (socketConnection.UUID.ToString() != requestID) continue;
-
-                        RequestEnum.RequestType requestMethode = EnumUtil.ParseRequestMethodeEnum(context.Request.Method);
-                        string requestBody = await new StreamReader(context.Request.Body).ReadToEndAsync();
-                        string[] requestHeaders = context.Request.Headers.Select(x => x.Key + ":" + x.Value).ToArray();
-                        requestPath = requestPath.Replace("/" + requestID, "");
-
-                        string requestUUID = Guid.NewGuid().ToString();
-                        await SocketHandler.HandleRequestForwarder(socketConnection, requestMethode, requestPath, requestBody, requestHeaders, requestUUID);
-
-                        await HelperUtil.CheckForRequestResult(requestUUID, 100, 100, async (result) =>
-                        {
-                            StorageUtil.app.Logger.LogInformation($"Request with UUID {requestUUID} has been completed with status code {result.resultStatusCode}");
-                            context.Response.StatusCode = (int)result.resultStatusCode;
-                            await context.Response.WriteAsync(result.resultContent);
-                        });
-                        //await next.Invoke();
+                        context.Response.StatusCode = StatusCodes.Status404NotFound;
+                        await context.Response.WriteAsync("UUID not found");
+                        return;
                     }
+
+
+                    RequestEnum.RequestType requestMethode = EnumUtil.ParseRequestMethodeEnum(context.Request.Method);
+                    string requestBody = await new StreamReader(context.Request.Body).ReadToEndAsync();
+                    string[] requestHeaders = context.Request.Headers.Select(x => x.Key + ":" + x.Value).ToArray();
+                    requestPath = requestPath.Replace("/" + requestID, "");
+
+                    string requestUUID = Guid.NewGuid().ToString();
+                    await SocketHandler.HandleRequestForwarder(socketConnection, requestMethode, requestPath, requestBody, requestHeaders, requestUUID);
+
+                    await HelperUtil.CheckForRequestResult(requestUUID, 100, 100, async (result) =>
+                    {
+                        StorageUtil.app.Logger.LogInformation($"Request with UUID {requestUUID} has been completed with status code {result.resultStatusCode}");
+                        context.Response.StatusCode = (int)result.resultStatusCode;
+                        await context.Response.WriteAsync(result.resultContent);
+                    });
                 }
                 else
                 {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p6Rq5lVHkbFlN9iBtH2jz43SSPNWcJKhHKW7gpbY9GyFuC6EseGqlZoEMwNecF9iQ9PrF1auQueJ2IeNImmnGg==",
+  "dgSpecHash": "eftED5XmvgWUfyKlU/jGdYPol7kSEO3USAUNSivTEmJT15n1gHf5uRAEJIa3nWbmvbQaBVOvJ6ajfut6cCO5xQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend\\CSGrock\\CSGrock.csproj",
+  "projectFilePath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend-main\\CSGrock\\CSGrock.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
