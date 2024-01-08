@@ -1,6 +1,8 @@
 ﻿using CSGrock.CSGrockLogic.Struct;
 using CSGrock.CSGrockLogic.Utils;
 using CSGrock.CSGrockLogic.Utils.Enums;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.Eventing.Reader;
 using System.Net.WebSockets;
 using System.Text;
 
@@ -82,12 +84,15 @@ namespace CSGrock.CSGrockLogic.Socket
                         Console.WriteLine(requestResult);
 
                         var resultStruct = JSONUtil.ConvertResponseToJSON(requestResult);
+                        /*if(resultStruct.resultContent == StorageUtil.errorOnFrontendMessage)
+                        {
+                            StorageUtil.app.Logger.LogInformation("result struct is error message");
+                            continue;
+                        }*/
+
+
                         StorageUtil.app.Logger.LogInformation($"Request with id {resultStruct.requestID} has been completed with status code {resultStruct.resultStatusCode}");
-
-                        StorageUtil.app.Logger.LogInformation(StorageUtil.allRequestResults.Count.ToString());
                         StorageUtil.allRequestResults.Add(resultStruct);
-                        StorageUtil.app.Logger.LogInformation(StorageUtil.allRequestResults.Count.ToString());
-
                         continue;
                     }
 
@@ -100,6 +105,8 @@ namespace CSGrock.CSGrockLogic.Socket
                     StorageUtil.app.Logger.LogInformation($"Socket with UUID {socketConnection.UUID} closed");
                 }
             }
+            StorageUtil.app.Logger.LogInformation($"Socket with UUID {socketConnection.UUID} closed");
+            StorageUtil.allSockettConnections.Remove(socketConnection);
         }
     }
 }

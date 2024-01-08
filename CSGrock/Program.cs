@@ -9,6 +9,7 @@ using System.Net.NetworkInformation;
 using CSGrock.CSGrockLogic.Utils.Enums;
 using System.Reflection;
 using System.Net.Sockets;
+using System.Net;
 
 //create a new main class
 namespace CSGrock
@@ -109,6 +110,19 @@ namespace CSGrock
 
                     await HelperUtil.CheckForRequestResult(requestUUID, 100, 100, async (result) =>
                     {
+                        StorageUtil.app.Logger.LogInformation(result.resultContent);
+                        StorageUtil.app.Logger.LogInformation(result.resultStatusCode.ToString());
+                        StorageUtil.app.Logger.LogInformation(result.resultHeaders.ToString());
+
+                        if(result.resultContent == StorageUtil.errorOnFrontendMessage && result.resultStatusCode == System.Net.HttpStatusCode.BadGateway)
+                        {
+                            context.Response.StatusCode = (int)result.resultStatusCode;
+                            await context.Response.WriteAsync("Auto generated: cant send a request to the localhost...");
+                            return;
+                        }
+
+
+
                         StorageUtil.app.Logger.LogInformation($"Request with UUID {requestUUID} has been completed with status code {result.resultStatusCode}");
                         context.Response.StatusCode = (int)result.resultStatusCode;
                         await context.Response.WriteAsync(result.resultContent);

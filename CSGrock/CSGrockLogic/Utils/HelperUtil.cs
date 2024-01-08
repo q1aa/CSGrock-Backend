@@ -33,17 +33,18 @@ namespace CSGrock.CSGrockLogic.Utils
                 for(int j = StorageUtil.allRequestResults.Count - 1; j >= 0; j--)
                 {
                     RequestResultStruct requestResult = StorageUtil.allRequestResults[j];
-                    StorageUtil.app.Logger.LogInformation($"Checking for request with UUID {requestID}");
-                    StorageUtil.app.Logger.LogInformation($"List UUID {requestResult.requestID}");
                     if (requestResult.requestID == requestID)
                     {
                         handleMessage(requestResult);
+                        StorageUtil.app.Logger.LogInformation("Found request result");
                         return;
                     }
                 }
                 await Task.Delay(timeout);
                 i++;
             }
+
+            handleMessage(new RequestResultStruct(StorageUtil.errorOnFrontendMessage, new Dictionary<string, string>(), System.Net.HttpStatusCode.BadGateway, requestID));
         }
     }
 }

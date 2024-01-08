@@ -17,6 +17,10 @@ namespace CSGrock.CSGrockLogic.Utils
 
         public static RequestResultStruct ConvertResponseToJSON(string response)
         {
+            if(response.ToString() == "null")
+            {
+                return new RequestResultStruct(StorageUtil.errorOnFrontendMessage, new Dictionary<string, string>(), System.Net.HttpStatusCode.BadGateway, "null");
+            }
             JObject parsedJson = JObject.Parse(response);
 
             string resultContent = parsedJson["resultContent"].ToString();
