@@ -53,19 +53,6 @@ namespace CSGrock
                     StorageUtil.allSockettConnections.Add(socketConnection);
 
                     await SocketHandler.ReceiveMessage(socketConnection);
-
-                    /*await SocketHandler.ReceiveMessage(ws, async (result) =>
-                    {
-                        if (ws.State == WebSocketState.Open)
-                        {
-                            StorageUtil.app.Logger.LogInformation(result);
-                            await SocketHandler.SendMessage(ws, result);
-                        }
-                        else if (ws.State == WebSocketState.Closed)
-                        {
-                            StorageUtil.app.Logger.LogInformation("Socket closed");
-                        }
-                    });*/
                 }
                 else
                 {
@@ -110,20 +97,12 @@ namespace CSGrock
 
                     await HelperUtil.CheckForRequestResult(requestUUID, 100, 100, async (result) =>
                     {
-                        StorageUtil.app.Logger.LogInformation(result.resultContent);
-                        StorageUtil.app.Logger.LogInformation(result.resultStatusCode.ToString());
-                        StorageUtil.app.Logger.LogInformation(result.resultHeaders.ToString());
-
                         if(result.resultContent == StorageUtil.errorOnFrontendMessage && result.resultStatusCode == System.Net.HttpStatusCode.BadGateway)
                         {
                             context.Response.StatusCode = (int)result.resultStatusCode;
                             await context.Response.WriteAsync("Auto generated: cant send a request to the localhost...");
                             return;
                         }
-
-
-
-                        StorageUtil.app.Logger.LogInformation($"Request with UUID {requestUUID} has been completed with status code {result.resultStatusCode}");
                         context.Response.StatusCode = (int)result.resultStatusCode;
                         await context.Response.WriteAsync(result.resultContent);
                     });

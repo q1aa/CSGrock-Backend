@@ -14,8 +14,6 @@ namespace CSGrock.CSGrockLogic.Utils
         {
             foreach (WebSocketConnection socketConnection in StorageUtil.allSockettConnections)
             {
-                StorageUtil.app.Logger.LogInformation(socketConnection.UUID.ToString());
-                StorageUtil.app.Logger.LogInformation(uuid);
                 if (socketConnection.UUID.ToString() == uuid)
                 {
                     return true;
@@ -36,7 +34,6 @@ namespace CSGrock.CSGrockLogic.Utils
                     if (requestResult.requestID == requestID)
                     {
                         handleMessage(requestResult);
-                        StorageUtil.app.Logger.LogInformation("Found request result");
                         return;
                     }
                 }

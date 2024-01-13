@@ -10,35 +10,6 @@ namespace CSGrock.CSGrockLogic.Socket
 {
     public class SocketHandler
     {
-        /*public static Task SendMessage(WebSocket socket, string message)
-        {
-            if (socket.State != WebSocketState.Open) return Task.CompletedTask;
-
-            var bytes = Encoding.ASCII.GetBytes(message);
-            var buffer = new ArraySegment<byte>(bytes);
-            return socket.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
-        }
-
-        public static async Task ReceiveMessage(WebSocket socket, Action<string> handleMessage)
-        {
-            var buffer = new byte[1024 * 4];
-
-            while (socket.State == WebSocketState.Open)
-            {
-                var result = await socket.ReceiveAsync(buffer: new ArraySegment<byte>(buffer),
-                                                                          cancellationToken: CancellationToken.None);
-
-                if (result.MessageType == WebSocketMessageType.Text)
-                {
-                    handleMessage(Encoding.UTF8.GetString(buffer, 0, result.Count));
-                }
-                else if (result.MessageType == WebSocketMessageType.Close)
-                {
-                    await socket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
-                }
-            }
-        }*/
-
         public static Task SendMessage(WebSocketConnection socketConnection, string message)
         {
             if (socketConnection.Socket.State != WebSocketState.Open) return Task.CompletedTask;
@@ -56,9 +27,6 @@ namespace CSGrock.CSGrockLogic.Socket
                 string[] headerSplit = header.Split(":");
                 newHeaders.Add(headerSplit[0], headerSplit[1]);
             }
-
-            StorageUtil.app.Logger.LogInformation($"Sending request with UUID {requestID}");
-
             string requestJSON = JSONUtil.GetRequestJSON(requestMethode, path, requestBody, newHeaders, requestID);
             return SendMessage(socketConnection, requestJSON);
         }
@@ -76,13 +44,9 @@ namespace CSGrock.CSGrockLogic.Socket
                 {
                     string message = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
-                    //if(message.StartsWith($"Receaving from {socketConnection.UUID}"))
                     if(message.StartsWith($"Receaving from "))
                     {
-                        //string requestResult = message.Replace($"Receaving from {socketConnection.UUID}:", "");
                         string requestResult = message.Replace($"Receaving from ", "");
-                        Console.WriteLine(requestResult);
-
                         var resultStruct = JSONUtil.ConvertResponseToJSON(requestResult);
                         /*if(resultStruct.resultContent == StorageUtil.errorOnFrontendMessage)
                         {
@@ -97,7 +61,6 @@ namespace CSGrock.CSGrockLogic.Socket
                     }
 
                     await SendMessage(socketConnection, message);
-                    //StorageUtil.app.Logger.LogInformation($"Message received: {message} from {socketConnection.UUID}");
                 }
                 else if (result.MessageType == WebSocketMessageType.Close)
                 {
