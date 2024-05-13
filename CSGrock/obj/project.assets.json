@@ -481,19 +481,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\": {}
+    "C:\\Users\\Nils Langschmidt\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend-main\\CSGrock\\CSGrock.csproj",
+      "projectUniqueName": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\CSGrock.csproj",
       "projectName": "CSGrock",
-      "projectPath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend-main\\CSGrock\\CSGrock.csproj",
-      "packagesPath": "C:\\Users\\Sandra Schmidt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sandra Schmidt\\Documents\\GitHub\\CSGrock-Backend-main\\CSGrock\\obj\\",
+      "projectPath": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\CSGrock.csproj",
+      "packagesPath": "C:\\Users\\Nils Langschmidt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Sandra Schmidt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nils Langschmidt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -513,6 +518,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -547,7 +557,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

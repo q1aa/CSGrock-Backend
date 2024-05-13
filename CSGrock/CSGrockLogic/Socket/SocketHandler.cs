@@ -16,6 +16,7 @@ namespace CSGrock.CSGrockLogic.Socket
 
             var bytes = Encoding.ASCII.GetBytes(message);
             var buffer = new ArraySegment<byte>(bytes);
+            
             return socketConnection.Socket.SendAsync(buffer, WebSocketMessageType.Text, true, CancellationToken.None);
         }
 

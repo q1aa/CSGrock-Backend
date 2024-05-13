@@ -10,6 +10,7 @@ using CSGrock.CSGrockLogic.Utils.Enums;
 using System.Reflection;
 using System.Net.Sockets;
 using System.Net;
+using CSGrock.Pages._404;
 
 //create a new main class
 namespace CSGrock
@@ -45,8 +46,7 @@ namespace CSGrock
                     //set the id to the socket*/
 
                     //var socketConnection = new WebSocketConnection(Guid.NewGuid(), "CSGrock", ws);
-                    //create a new Guid equal to 1
-                    Guid uuid = Guid.Empty;
+                    Guid uuid = Guid.NewGuid();
                     var socketConnection = new WebSocketConnection(uuid, "CSGrock", ws);
                     StorageUtil.app.Logger.LogInformation($"User {socketConnection.username} connected with UUID {socketConnection.UUID}");
                     await SocketHandler.SendMessage(socketConnection, $"You are connected with UUID {socketConnection.UUID}");
@@ -109,8 +109,9 @@ namespace CSGrock
                 }
                 else
                 {
-                    StorageUtil.app.Logger.LogInformation("Invoke at else");
-                    await next.Invoke();
+                    //StorageUtil.app.Logger.LogInformation("Invoke at else");
+                    await context.Response.WriteAsync(Get404.Get404Page());
+                    //await next.Invoke();
                 }
             });
 

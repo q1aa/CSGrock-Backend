@@ -1,0 +1,12 @@
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\CSGrock.exe
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\CSGrock.dll
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\CSGrock.deps.json
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\CSGrock.runtimeconfig.json
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\CSGrock.pdb
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

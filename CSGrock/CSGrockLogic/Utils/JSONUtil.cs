@@ -12,7 +12,16 @@ namespace CSGrock.CSGrockLogic.Utils
             string headersAsJSON = JsonConvert.SerializeObject(requestHeaders);
             requestBody = requestBody.Replace("\"", "\\\"");
 
-            return $"{{\"requestMethode\": {(int)requestMethode}, \"requestURL\": \"{requestURL}\", \"requestBody\": \"{requestBody}\", \"requestHeaders\": {headersAsJSON}, \"requestID\": \"{requestID}\"}}";
+            var jsonObject = new
+            {
+                requestMethode = (int)requestMethode,
+                requestURL = requestURL,
+                requestBody = requestBody,
+                requestHeaders = requestHeaders,
+                requestID = requestID
+            };
+            return JsonConvert.SerializeObject(jsonObject);
+            //return $"{{\"requestMethode\": {(int)requestMethode}, \"requestURL\": \"{requestURL}\", \"requestBody\": \"{requestBody}\", \"requestHeaders\": {headersAsJSON}, \"requestID\": \"{requestID}\"}}";
         }
 
         public static RequestResultStruct ConvertResponseToJSON(string response)
