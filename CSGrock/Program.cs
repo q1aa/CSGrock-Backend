@@ -11,6 +11,9 @@ using System.Reflection;
 using System.Net.Sockets;
 using System.Net;
 using CSGrock.Pages._404;
+using CSGrock.Controllers;
+using Microsoft.Extensions.FileProviders;
+using CSGrock.Pages.Homepage;
 
 //create a new main class
 namespace CSGrock
@@ -28,6 +31,24 @@ namespace CSGrock
 
             StorageUtil.app = builder.Build();
 
+            StorageUtil.app.UseStaticFiles();
+
+            StorageUtil.app.UseRouting();
+
+            StorageUtil.app.UseEndpoints(endpoints =>
+            {
+                endpoints.Map("/", async context =>
+                {
+                    await context.Response.WriteAsync(Homepage_page.GetHomepage());
+                });
+            });
+
+            StorageUtil.app.UseHttpsRedirection();
+
+            StorageUtil.app.UseAuthorization();
+
+            StorageUtil.app.MapControllers();
+
             //creae a new socket server and log it when started
             StorageUtil.app.UseWebSockets();
             StorageUtil.app.Logger.LogInformation("Socket server started");
@@ -38,14 +59,6 @@ namespace CSGrock
                 {
                     var ws = await context.WebSockets.AcceptWebSocketAsync();
 
-                    /*var user = new RequestUserStruct("CSGrock", Guid.NewGuid());
-                    var messgage = $"User {user.username} connected with UUID {user.UUID}";
-                    var bytes = Encoding.ASCII.GetBytes(messgage);
-                    var arraySegment = new ArraySegment<byte>(bytes);
-                    await ws.SendAsync(arraySegment, WebSocketMessageType.Text, true, CancellationToken.None);
-                    //set the id to the socket*/
-
-                    //var socketConnection = new WebSocketConnection(Guid.NewGuid(), "CSGrock", ws);
                     Guid uuid = Guid.NewGuid();
                     var socketConnection = new WebSocketConnection(uuid, "CSGrock", ws);
                     StorageUtil.app.Logger.LogInformation($"User {socketConnection.username} connected with UUID {socketConnection.UUID}");
@@ -114,12 +127,6 @@ namespace CSGrock
                     //await next.Invoke();
                 }
             });
-
-            StorageUtil.app.UseHttpsRedirection();
-
-            StorageUtil.app.UseAuthorization();
-
-            StorageUtil.app.MapControllers();
 
             StorageUtil.app.Run();
         }

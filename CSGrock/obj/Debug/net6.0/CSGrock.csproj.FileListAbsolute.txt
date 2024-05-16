@@ -131,3 +131,4 @@ C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Debug\
 C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Debug\net6.0\CSGrock.pdb
 C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Debug\net6.0\CSGrock.genruntimeconfig.cache
 C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Debug\net6.0\ref\CSGrock.dll
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\bin\Debug\net6.0\CSGrock.staticwebassets.runtime.json
