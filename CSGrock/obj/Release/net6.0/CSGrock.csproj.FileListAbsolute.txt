@@ -65,3 +65,4 @@ C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Releas
 C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\CSGrock.pdb
 C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\CSGrock.genruntimeconfig.cache
 C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\obj\Release\net6.0\ref\CSGrock.dll
+C:\Users\Nils Langschmidt\Documents\GitHubNew\CSGrock-Backend\CSGrock\bin\Release\net6.0\CSGrock.staticwebassets.runtime.json
