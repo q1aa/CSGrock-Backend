@@ -1,24 +1,40 @@
+function downloadFocus() {
+    let right = document.getElementsByClassName("right")[0];
+    window.scrollTo(0, 0);
+    let opacity = 1;
+    let timer = setInterval(() => {
+        if (opacity <= 0) {
+            clearInterval(timer);
+            right.style.border = "none";
+        } else {
+            let red = Math.floor(opacity * 255);
+            let blue = 255 - red;
+            right.style.border = `2px solid rgba(${blue}, 0, ${red}, ${opacity})`;
+            opacity -= 0.02;
+        }
+    }, 100);
+}
+
 const portInput = document.getElementById('port-select');
 const copycmdInput = document.getElementById('copy-cmd');
 const selectplatformInput = document.getElementById('select-platform');
 const frameworkSelect = document.getElementById('framework-select');
 
-portInput.addEventListener('change', function() {
+portInput.addEventListener('change', function () {
     changeCopyCMDText(this.value);
     frameworkSelect.value = 'None';
 });
 
-copycmdInput.addEventListener('click', function() {
+copycmdInput.addEventListener('click', function () {
     this.select();
     document.execCommand('copy');
 });
 
-frameworkSelect.addEventListener('change', function() {
+frameworkSelect.addEventListener('change', function () {
     const platform = this.value;
     console.log(platform);
 
     switch (platform) {
-        /*Laravel Djnago Flask Express Ruby ASP.NET Spring Hugo*/
         case 'Laravel':
             portInput.value = '8000';
             changeCopyCMDText('8000');
