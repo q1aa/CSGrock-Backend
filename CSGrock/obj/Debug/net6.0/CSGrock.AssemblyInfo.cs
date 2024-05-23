@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CSGrock")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7947082ac2d84dd74924f468285c3ed3e773ddce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3942a9d3da5290d0e27d8f753cf4e20bbf6149e")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSGrock")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSGrock")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,15 +1,15 @@
-function downloadFocus() {
-    let right = document.getElementsByClassName("right")[0];
-    window.scrollTo(0, 0);
+function setElementFocus(elementClass) {
+    let focusElement = document.getElementsByClassName(elementClass)[0];
+    focusElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     let opacity = 1;
     let timer = setInterval(() => {
         if (opacity <= 0) {
             clearInterval(timer);
-            right.style.border = "none";
+            focusElement.style.border = "none";
         } else {
             let red = Math.floor(opacity * 255);
             let blue = 255 - red;
-            right.style.border = `2px solid rgba(${blue}, 0, ${red}, ${opacity})`;
+            focusElement.style.border = `2px solid rgba(${blue}, 0, ${red}, ${opacity})`;
             opacity -= 0.02;
         }
     }, 100);
@@ -20,17 +20,32 @@ const copycmdInput = document.getElementById('copy-cmd');
 const selectplatformInput = document.getElementById('select-platform');
 const frameworkSelect = document.getElementById('framework-select');
 
-portInput.addEventListener('change', function () {
+document.addEventListener('DOMContentLoaded', function() {
+    handleScreenWidth();
+});
+
+window.addEventListener('resize', function() {
+    handleScreenWidth();
+});
+
+function handleScreenWidth() {
+    let screenWidth = window.innerWidth;
+    
+    if (screenWidth < 1000) document.getElementById('explanation-image').src = 'how-it-works-mobile.png';
+    else document.getElementById('explanation-image').src = 'how-it-works-pc.png';
+}
+
+portInput.addEventListener('change', function() {
     changeCopyCMDText(this.value);
     frameworkSelect.value = 'None';
 });
 
-copycmdInput.addEventListener('click', function () {
+copycmdInput.addEventListener('click', function() {
     this.select();
     document.execCommand('copy');
 });
 
-frameworkSelect.addEventListener('change', function () {
+frameworkSelect.addEventListener('change', function() {
     const platform = this.value;
     console.log(platform);
 

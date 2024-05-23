@@ -1,15 +1,15 @@
-function downloadFocus() {
-    let right = document.getElementsByClassName("right")[0];
-    window.scrollTo(0, 0);
+function setElementFocus(elementClass) {
+    let focusElement = document.getElementsByClassName(elementClass)[0];
+    focusElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     let opacity = 1;
     let timer = setInterval(() => {
         if (opacity <= 0) {
             clearInterval(timer);
-            right.style.border = "none";
+            focusElement.style.border = "none";
         } else {
             let red = Math.floor(opacity * 255);
             let blue = 255 - red;
-            right.style.border = `2px solid rgba(${blue}, 0, ${red}, ${opacity})`;
+            focusElement.style.border = `2px solid rgba(${blue}, 0, ${red}, ${opacity})`;
             opacity -= 0.02;
         }
     }, 100);
