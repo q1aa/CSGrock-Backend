@@ -1,6 +1,22 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\how-it-works-mobile.png",
+      "PackagePath": "staticwebassets\\how-it-works-mobile.png"
+    },
+    {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\how-it-works-pc.png",
+      "PackagePath": "staticwebassets\\how-it-works-pc.png"
+    },
+    {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\how-our-serve-works-mobile.excalidraw",
+      "PackagePath": "staticwebassets\\how-our-serve-works-mobile.excalidraw"
+    },
+    {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\how-our-serve-works.excalidraw",
+      "PackagePath": "staticwebassets\\how-our-serve-works.excalidraw"
+    },
+    {
       "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\script.js",
       "PackagePath": "staticwebassets\\script.js"
     },

@@ -20,17 +20,32 @@ const copycmdInput = document.getElementById('copy-cmd');
 const selectplatformInput = document.getElementById('select-platform');
 const frameworkSelect = document.getElementById('framework-select');
 
-portInput.addEventListener('change', function () {
+document.addEventListener('DOMContentLoaded', function() {
+    handleScreenWidth();
+});
+
+window.addEventListener('resize', function() {
+    handleScreenWidth();
+});
+
+function handleScreenWidth() {
+    let screenWidth = window.innerWidth;
+    
+    if (screenWidth < 1000) document.getElementById('explanation-image').src = 'how-it-works-mobile.png';
+    else document.getElementById('explanation-image').src = 'how-it-works-pc.png';
+}
+
+portInput.addEventListener('change', function() {
     changeCopyCMDText(this.value);
     frameworkSelect.value = 'None';
 });
 
-copycmdInput.addEventListener('click', function () {
+copycmdInput.addEventListener('click', function() {
     this.select();
     document.execCommand('copy');
 });
 
-frameworkSelect.addEventListener('change', function () {
+frameworkSelect.addEventListener('change', function() {
     const platform = this.value;
     console.log(platform);
 

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Pages\Homepage\Untitled-2024-05-22-1057.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\script.js" />
     <None Include="wwwroot\style.css" />
   </ItemGroup>
