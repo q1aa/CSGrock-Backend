@@ -103,7 +103,9 @@ namespace CSGrock
                     RequestEnum.RequestType requestMethode = EnumUtil.ParseRequestMethodeEnum(context.Request.Method);
                     string requestBody = await new StreamReader(context.Request.Body).ReadToEndAsync();
                     string[] requestHeaders = context.Request.Headers.Select(x => x.Key + ":" + x.Value).ToArray();
-                    requestPath = requestPath.Replace("/" + requestID, "");
+                    
+                    //requestPath = requestPath.Replace("/" + requestID, ""); this will not replace /send so its causing errors!!!
+                    requestPath = requestPath.Replace("/send/" + requestID, "");
 
                     string requestUUID = Guid.NewGuid().ToString();
                     await SocketHandler.HandleRequestForwarder(socketConnection, requestMethode, requestPath, requestBody, requestHeaders, requestUUID);
