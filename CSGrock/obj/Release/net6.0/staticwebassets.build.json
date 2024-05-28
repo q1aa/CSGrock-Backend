@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z00OjFTqEqPSGt6tl/NCbL9jX7AH6Eh8tVlm3oT50ro=",
+  "Hash": "RUmXj66IG4+OVHXO7ofGowo83Mec/ljKoj4wYz5q6ro=",
   "Source": "CSGrock",
   "BasePath": "_content/CSGrock",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\font_logo.png",
+      "SourceId": "CSGrock",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\",
+      "BasePath": "_content/CSGrock",
+      "RelativePath": "font_logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\font_logo.png"
+    },
     {
       "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\how-it-works-mobile.png",
       "SourceId": "CSGrock",
@@ -93,6 +112,25 @@
       "OriginalItemSpec": "wwwroot\\how-our-serve-works-mobile.excalidraw"
     },
     {
+      "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\icons8_logo.png",
+      "SourceId": "CSGrock",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\",
+      "BasePath": "_content/CSGrock",
+      "RelativePath": "icons8_logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icons8_logo.png"
+    },
+    {
       "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\script.js",
       "SourceId": "CSGrock",
       "SourceType": "Discovered",
@@ -131,12 +169,12 @@
       "OriginalItemSpec": "wwwroot\\style.css"
     },
     {
-      "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\test.txt",
+      "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\testfile.html",
       "SourceId": "CSGrock",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\",
       "BasePath": "_content/CSGrock",
-      "RelativePath": "test.txt",
+      "RelativePath": "testfile.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,7 +185,45 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\test.txt"
+      "OriginalItemSpec": "wwwroot\\testfile.html"
+    },
+    {
+      "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\Untitled-2024-05-22-1057-2.excalidraw",
+      "SourceId": "CSGrock",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\",
+      "BasePath": "_content/CSGrock",
+      "RelativePath": "Untitled-2024-05-22-1057-2.excalidraw",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Untitled-2024-05-22-1057-2.excalidraw"
+    },
+    {
+      "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\Virgil.woff2",
+      "SourceId": "CSGrock",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\",
+      "BasePath": "_content/CSGrock",
+      "RelativePath": "Virgil.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Virgil.woff2"
     }
   ]
 }

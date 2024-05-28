@@ -5,13 +5,20 @@
     color: var(--text-color);
 }
 
+@font-face {
+    font-family: 'Virgil'; /*a name to be used later*/
+    src: url('Virgil.woff2') format('woff2'); /*URL to font*/
+}
+
 :root {
     --background-color: #090b09;
     --text-color: #eff0f0;
-    --primary-div-color: #2d3333;
+    --primary-div-color: #121212;
     --terminal-color: #000000;
     --button-color: #000000;
     --accent-color: #35353b;
+
+    --box-height: 50px;
 }
 
 body {
@@ -72,13 +79,13 @@ body {
 }
 
 .top-holder .split .left {
-    width: 50%;
+    width: 30%;
     padding: 20px;
     margin: 20px;
 }
 
 .top-holder .split .right {
-    width: 50%;
+    width: 60%;
     padding: 20px;
     margin: 20px;
 
@@ -103,6 +110,10 @@ body {
     margin-bottom: 20px;
 }
 
+.right {
+    font-family: 'Virgil';
+}
+
 .framework-select {
     display: flex;
     justify-content: space-between;
@@ -112,25 +123,26 @@ body {
 }
 
 .framework-select label {
-    height: 40px;
+    height: var(--box-height);
     width: 100%;
     display: flex;
     align-items: center;
     padding-left: 20px;
-    background-color: var(--accent-color);
+    background-color: var(--terminal-color);
 }
 
 .framework-select select {
-    height: 40px;
+    height: var(--box-height);
     width: 80%;
     padding: 10px;
     font-size: 16px;
     border: none;
-    background-color: var(--accent-color);
+    background-color: var(--terminal-color);
 }
 
 #framework-info-text {
     font-size: 22px;
+    margin-left: 10px;
 }
 
 .port-select {
@@ -143,22 +155,22 @@ body {
 }
 
 .port-select label {
-    height: 40px;
+    height: var(--box-height);
     width: 100%;
     display: flex;
     align-items: center;
     padding-left: 20px;
-    background-color: var(--accent-color);
+    background-color: var(--terminal-color);
 }
 
 .port-select input {
     border: 1px solid #ccc;
-    height: 40px;
+    height: var(--box-height);
     width: 80%;
     padding: 10px;
     border: none;
     font-size: 16px;
-    background-color: var(--accent-color);
+    background-color: var(--terminal-color);
 }
 
 .copy-cmd {
@@ -169,7 +181,7 @@ body {
 
 .copy-cmd input {
     margin-top: 10px;
-    height: 40px;
+    height: var(--box-height);
     width: 100%;
     background-color: var(--terminal-color);
     color: #fff;
@@ -183,7 +195,7 @@ body {
 .download {
     display: flex;
     margin-top: 20px;
-    background-color: var(--accent-color);
+    background-color: var(--background-color);
     border-radius: 0 0 10px 10px;
     flex-direction: column;
     padding: 20px 10px 20px 10px;
@@ -195,7 +207,7 @@ body {
 }
 
 .download-button-holder button {
-    height: 40px;
+    height: var(--box-height);
     width: 100%;
     background-color: var(--button-color);
     color: #fff;
@@ -221,6 +233,45 @@ body {
     justify-content: center;
     align-items: center;
     margin: 20px 0 50px 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-div-color);
+    color: var(--text-color);
+    padding: 20px 0;
+}
+
+.footer .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.footer .footer-content .credits-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.credits-holder .credits-image {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+@media (max-width: 1400px){
+    .top-holder .split .left {
+        width: 50%;
+    }
+    
+    .top-holder .split .right {
+        width: 50%;
+    }
 }
 
 @media (max-width: 1000px) {
