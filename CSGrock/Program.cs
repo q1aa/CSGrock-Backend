@@ -118,6 +118,13 @@ namespace CSGrock
                             await context.Response.WriteAsync("Auto generated: cant send a request to the localhost...");
                             return;
                         }
+
+                        /*var mimeType = "image/jpeg"; // Assuming JPEG format, adjust as needed
+                        var dataUri = $"data:{mimeType};base64,{result.resultContent}";
+                        Console.WriteLine(dataUri);
+                        context.Response.ContentType = mimeType;
+                        await context.Response.WriteAsync($"<img src=\"{dataUri}\" />");*/
+
                         context.Response.StatusCode = (int)result.resultStatusCode;
                         await context.Response.WriteAsync(result.resultContent);
                     });

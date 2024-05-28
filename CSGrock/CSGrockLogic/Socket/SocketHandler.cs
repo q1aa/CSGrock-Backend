@@ -32,6 +32,8 @@ namespace CSGrock.CSGrockLogic.Socket
             return SendMessage(socketConnection, requestJSON);
         }
 
+        static string base64 = string.Empty;
+
         public static async Task ReceiveMessage(WebSocketConnection socketConnection)
         {
             var buffer = new byte[1024 * 4];
@@ -60,6 +62,23 @@ namespace CSGrock.CSGrockLogic.Socket
                         StorageUtil.allRequestResults.Add(resultStruct);
                         continue;
                     }
+                    /*else if(message.StartsWith($"Receaving parts "))
+                    {
+                        string requestResult = message.Replace($"Receaving parts ", "");
+                        *{"partID":709,"partContent":"ruj0ztis4aT8NVmgjQXILWDiJjT8vI3+1Vrt9RbBBAc4xSeeryi/aWm4Z+s4rbZdNtWf0VcdVMqO6AQXrJJbbvlFh3y3XHZQVX2m","partsLenght":1956,"requestID":"e52cfd65-b933-4863-a661-875dec98fbd3"}
+                        var data = message.Split(",");
+                        string base64Part = data[1].Replace("\"partContent\":\"", "").Replace("\"", "");
+                        base64 += base64Part;
+                        if (requestResult.Contains("\"partID\":1956"))
+                        {
+                            var requestID = data[3].Replace("\"requestID\":\"", "").Replace("\"", "").Replace("}", "");
+
+                            var resultStruct = new RequestResultStruct(base64, new Dictionary<string, string>(), System.Net.HttpStatusCode.OK, requestID);
+                            StorageUtil.app.Logger.LogInformation($"Request with id {resultStruct.requestID} has been completed with status code {resultStruct.resultStatusCode}");
+                            StorageUtil.allRequestResults.Add(resultStruct);
+                        }
+                        continue;
+                    }*/
 
                     await SendMessage(socketConnection, message);
                 }
