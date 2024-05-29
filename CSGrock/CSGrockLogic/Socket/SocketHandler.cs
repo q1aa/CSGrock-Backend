@@ -78,7 +78,7 @@ namespace CSGrock.CSGrockLogic.Socket
 
                             //Need to implement filename!!!!!!!!
                             string filePath = Path.Combine(Directory.GetCurrentDirectory(), @$"UserContent/{imagePart.requestID}");
-                            await FileUtil.WriteByteToFile(filePath, Convert.FromBase64String(base64), "Z.png");
+                            await FileUtil.WriteByteToFile(filePath, Convert.FromBase64String(base64), $"{imagePart.requestID}{imagePart.fileType}");
 
                             var resultStruct = new RequestResultStruct("Lookup-dir", new Dictionary<string, string>(), System.Net.HttpStatusCode.Gone, imagePart.requestID);
                             StorageUtil.app.Logger.LogInformation($"Request with id {resultStruct.requestID} has been completed with status code {resultStruct.resultStatusCode}");

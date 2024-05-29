@@ -54,9 +54,11 @@ namespace CSGrock.CSGrockLogic.Utils
             int partID = (int)parsedJson["partID"];
             string partContent = (string)parsedJson["partContent"];
             int partsLenght = (int)parsedJson["partsLenght"];
+            string fileName = (string)parsedJson["fileName"];
+            string fileType = (string)parsedJson["fileType"];
             string requestID = (string)parsedJson["requestID"];
 
-            return new ImagePartStruct(partID, partContent, partsLenght, requestID);
+            return new ImagePartStruct(partID, partContent, partsLenght, fileName, fileType, requestID);
         }
     }
 }

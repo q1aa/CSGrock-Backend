@@ -126,12 +126,22 @@ namespace CSGrock
 
                         if(result.resultContent == "Lookup-dir" && result.resultStatusCode == HttpStatusCode.Gone)
                         {
-                            //send a file from the usercontent folder
-                            string filePath = Path.Combine(Directory.GetCurrentDirectory(), @$"UserContent/{result.requestID}/Z.png");
-                            if (File.Exists(filePath))
+                            string fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), @$"UserContent/{result.requestID}");
+
+                            string[] files = Directory.GetFiles(fileDirectory);
+                            if (files.Length > 0)
                             {
-                                StorageUtil.app.Logger.LogInformation($"Calling sending file");
-                                context.Response.ContentType = "image/png";
+                                string filePath = files[0];
+                                string fileName = Path.GetFileName(filePath);
+                                string fileExtension = Path.GetExtension(filePath);
+                                if (!File.Exists(filePath))
+                                {
+                                    context.Response.StatusCode = StatusCodes.Status404NotFound;
+                                    await context.Response.WriteAsync("File not found");
+                                    return;
+                                }
+
+                                //await ResponseHeaders.AddFileExtensionHeaders(context, fileExtension);
                                 await context.Response.Body.WriteAsync(File.ReadAllBytes(filePath)).AsTask();
 
                                 Directory.Delete(Path.Combine(Directory.GetCurrentDirectory(), @$"UserContent/{result.requestID}"), true);
@@ -139,7 +149,6 @@ namespace CSGrock
                             }
                             else
                             {
-                                StorageUtil.app.Logger.LogWarning($"Calling file not found");
                                 context.Response.StatusCode = StatusCodes.Status404NotFound;
                                 await context.Response.WriteAsync("File not found");
                                 return;
