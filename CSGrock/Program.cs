@@ -12,6 +12,7 @@ using System.Net.Sockets;
 using System.Net;
 using CSGrock.Pages._404;
 using CSGrock.Pages.Homepage;
+using Microsoft.Extensions.FileProviders;
 
 //create a new main class
 namespace CSGrock
@@ -34,6 +35,10 @@ namespace CSGrock
             StorageUtil.app.Logger.LogInformation("Socket server started");
 
             StorageUtil.app.UseStaticFiles();
+            StorageUtil.app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "UserContent")),
+            });
 
             StorageUtil.app.Map("/ws", async context =>
             {
@@ -119,12 +124,45 @@ namespace CSGrock
                             return;
                         }
 
+                        if(result.resultContent == "Lookup-dir" && result.resultStatusCode == HttpStatusCode.Gone)
+                        {
+                            //send a file from the usercontent folder
+                            string filePath = Path.Combine(Directory.GetCurrentDirectory(), @$"UserContent/{result.requestID}/Z.png");
+                            if (File.Exists(filePath))
+                            {
+                                StorageUtil.app.Logger.LogInformation($"Calling sending file");
+                                context.Response.ContentType = "image/png";
+                                await context.Response.Body.WriteAsync(File.ReadAllBytes(filePath)).AsTask();
+
+                                Directory.Delete(Path.Combine(Directory.GetCurrentDirectory(), @$"UserContent/{result.requestID}"), true);
+                                return;
+                            }
+                            else
+                            {
+                                StorageUtil.app.Logger.LogWarning($"Calling file not found");
+                                context.Response.StatusCode = StatusCodes.Status404NotFound;
+                                await context.Response.WriteAsync("File not found");
+                                return;
+                            }
+                        }
+
+                        StorageUtil.app.Logger.LogInformation("Started main response");
+
                         /*var mimeType = "image/jpeg"; // Assuming JPEG format, adjust as needed
                         var dataUri = $"data:{mimeType};base64,{result.resultContent}";
                         Console.WriteLine(dataUri);
                         context.Response.ContentType = mimeType;
                         await context.Response.WriteAsync($"<img src=\"{dataUri}\" />");*/
 
+
+                        //unsure if its working, have to test it! if not, i have to find another way to send all the headers along with the response
+                        foreach (var header in result.resultHeaders)
+                        {
+                            StorageUtil.app.Logger.LogWarning($"Header: {header.Key} : {header.Value}");
+                            context.Response.Headers.Add(header.Key, header.Value);
+                        }
+
+                        StorageUtil.app.Logger.LogInformation("Finished main response");
                         context.Response.StatusCode = (int)result.resultStatusCode;
                         await context.Response.WriteAsync(result.resultContent);
                     });
@@ -132,6 +170,7 @@ namespace CSGrock
                 else
                 {
                     //StorageUtil.app.Logger.LogInformation("Invoke at else");
+                    StorageUtil.app.Logger.LogInformation("Invoke at else");
                     await context.Response.WriteAsync(Get404.Get404Page());
                     //await next.Invoke();
                 }

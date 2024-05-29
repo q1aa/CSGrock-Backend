@@ -46,5 +46,17 @@ namespace CSGrock.CSGrockLogic.Utils
 
             return new RequestResultStruct(resultContent, resultHeadersDict, statusCode, requestID);
         }
+
+        public static ImagePartStruct ConvertImagePartToJSON(string response)
+        {
+            JObject parsedJson = JObject.Parse(response);
+
+            int partID = (int)parsedJson["partID"];
+            string partContent = (string)parsedJson["partContent"];
+            int partsLenght = (int)parsedJson["partsLenght"];
+            string requestID = (string)parsedJson["requestID"];
+
+            return new ImagePartStruct(partID, partContent, partsLenght, requestID);
+        }
     }
 }

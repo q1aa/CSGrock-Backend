@@ -34,6 +34,7 @@ namespace CSGrock.CSGrockLogic.Utils
                     if (requestResult.requestID == requestID)
                     {
                         handleMessage(requestResult);
+                        RemoveRequestResult(requestID);
                         return;
                     }
                 }
@@ -42,6 +43,18 @@ namespace CSGrock.CSGrockLogic.Utils
             }
 
             handleMessage(new RequestResultStruct(StorageUtil.errorOnFrontendMessage, new Dictionary<string, string>(), System.Net.HttpStatusCode.BadGateway, requestID));
+        }
+
+        public static async Task RemoveRequestResult(string requestID)
+        {
+            for (int i = StorageUtil.allRequestResults.Count - 1; i >= 0; i--)
+            {
+                if (StorageUtil.allRequestResults[i].requestID == requestID)
+                {
+                    StorageUtil.allRequestResults.RemoveAt(i);
+                    return;
+                }
+            }
         }
     }
 }

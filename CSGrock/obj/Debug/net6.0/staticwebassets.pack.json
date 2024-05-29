@@ -1,6 +1,18 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\Untitled-2024-05-22-1057-2.excalidraw",
+      "PackagePath": "staticwebassets\\Untitled-2024-05-22-1057-2.excalidraw"
+    },
+    {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\Virgil.woff2",
+      "PackagePath": "staticwebassets\\Virgil.woff2"
+    },
+    {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\font_logo.png",
+      "PackagePath": "staticwebassets\\font_logo.png"
+    },
+    {
       "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\how-it-works-mobile.png",
       "PackagePath": "staticwebassets\\how-it-works-mobile.png"
     },
@@ -17,6 +29,10 @@
       "PackagePath": "staticwebassets\\how-our-serve-works.excalidraw"
     },
     {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\icons8_logo.png",
+      "PackagePath": "staticwebassets\\icons8_logo.png"
+    },
+    {
       "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\script.js",
       "PackagePath": "staticwebassets\\script.js"
     },
@@ -25,8 +41,8 @@
       "PackagePath": "staticwebassets\\style.css"
     },
     {
-      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\test.txt",
-      "PackagePath": "staticwebassets\\test.txt"
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\testfile.html",
+      "PackagePath": "staticwebassets\\testfile.html"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CSGrock.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -32,8 +32,6 @@ namespace CSGrock.CSGrockLogic.Socket
             return SendMessage(socketConnection, requestJSON);
         }
 
-        static string base64 = string.Empty;
-
         public static async Task ReceiveMessage(WebSocketConnection socketConnection)
         {
             var buffer = new byte[1024 * 4];
@@ -51,34 +49,54 @@ namespace CSGrock.CSGrockLogic.Socket
                     {
                         string requestResult = message.Replace($"Receaving from ", "");
                         var resultStruct = JSONUtil.ConvertResponseToJSON(requestResult);
-                        /*if(resultStruct.resultContent == StorageUtil.errorOnFrontendMessage)
-                        {
-                            StorageUtil.app.Logger.LogInformation("result struct is error message");
-                            continue;
-                        }*/
-
 
                         StorageUtil.app.Logger.LogInformation($"Request with id {resultStruct.requestID} has been completed with status code {resultStruct.resultStatusCode}");
                         StorageUtil.allRequestResults.Add(resultStruct);
                         continue;
                     }
-                    /*else if(message.StartsWith($"Receaving parts "))
+                    else if(message.StartsWith($"Receaving parts "))
                     {
                         string requestResult = message.Replace($"Receaving parts ", "");
-                        *{"partID":709,"partContent":"ruj0ztis4aT8NVmgjQXILWDiJjT8vI3+1Vrt9RbBBAc4xSeeryi/aWm4Z+s4rbZdNtWf0VcdVMqO6AQXrJJbbvlFh3y3XHZQVX2m","partsLenght":1956,"requestID":"e52cfd65-b933-4863-a661-875dec98fbd3"}
-                        var data = message.Split(",");
-                        string base64Part = data[1].Replace("\"partContent\":\"", "").Replace("\"", "");
-                        base64 += base64Part;
-                        if (requestResult.Contains("\"partID\":1956"))
-                        {
-                            var requestID = data[3].Replace("\"requestID\":\"", "").Replace("\"", "").Replace("}", "");
+                        /*{"partID":709,"partContent":"ruj0ztis4aT8NVmgjQXILWDiJjT8vI3+1Vrt9RbBBAc4xSeeryi/aWm4Z+s4rbZdNtWf0VcdVMqO6AQXrJJbbvlFh3y3XHZQVX2m","partsLenght":1956,"requestID":"e52cfd65-b933-4863-a661-875dec98fbd3"}*/
 
-                            var resultStruct = new RequestResultStruct(base64, new Dictionary<string, string>(), System.Net.HttpStatusCode.OK, requestID);
+                        ImagePartStruct imagePart = JSONUtil.ConvertImagePartToJSON(requestResult);
+                        if (!StorageUtil.partsList.ContainsKey(imagePart.requestID))
+                        {
+                            StorageUtil.partsList.Add(imagePart.requestID, imagePart.partContent);
+                        }
+                        else
+                        {
+                            StorageUtil.partsList[imagePart.requestID] += imagePart.partContent;
+                        }
+
+                        //StorageUtil.app.Logger.LogInformation($"Receaved part {imagePart.partID} of request with id {imagePart.requestID} out of {imagePart.partsLenght}");
+
+                        if (imagePart.partsLenght == imagePart.partID)
+                        {
+                            StorageUtil.app.Logger.LogInformation($"All parts of request with id {imagePart.requestID} has been received");
+                            string base64 = StorageUtil.partsList[imagePart.requestID];
+
+                            //Need to implement filename!!!!!!!!
+                            string filePath = Path.Combine(Directory.GetCurrentDirectory(), @$"UserContent/{imagePart.requestID}");
+                            await FileUtil.WriteByteToFile(filePath, Convert.FromBase64String(base64), "Z.png");
+
+                            var resultStruct = new RequestResultStruct("Lookup-dir", new Dictionary<string, string>(), System.Net.HttpStatusCode.Gone, imagePart.requestID);
                             StorageUtil.app.Logger.LogInformation($"Request with id {resultStruct.requestID} has been completed with status code {resultStruct.resultStatusCode}");
                             StorageUtil.allRequestResults.Add(resultStruct);
+
+                            StorageUtil.partsList.Remove(imagePart.requestID);
+                            continue;
                         }
+
+                        /*string filePath = Path.Combine(Directory.GetCurrentDirectory(), @"UserContent/efaeeb49-e99f-4112-9f90-ab3fc90d596d/Z.png");
+                            StorageUtil.app.Logger.LogInformation($"Writing file to {filePath}");
+                            FileUtil.WriteByteToFile(filePath, Convert.FromBase64String(base64));
+
+                            var resultStruct = new RequestResultStruct("Lookup-dir", new Dictionary<string, string>(), System.Net.HttpStatusCode.Gone, requestID);
+                            StorageUtil.app.Logger.LogInformation($"Request with id {resultStruct.requestID} has been completed with status code {resultStruct.resultStatusCode}");
+                            StorageUtil.allRequestResults.Add(resultStruct);*/
                         continue;
-                    }*/
+                    }
 
                     await SendMessage(socketConnection, message);
                 }
