@@ -19,35 +19,35 @@ const portInput = document.getElementById('port-select');
 const copycmdInput = document.getElementById('copy-cmd');
 const selectplatformInput = document.getElementById('select-platform');
 const frameworkSelect = document.getElementById('framework-select');
+const frameworkInfoText = document.getElementById('framework-info-text');
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     handleScreenWidth();
 });
 
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     handleScreenWidth();
 });
 
 function handleScreenWidth() {
     let screenWidth = window.innerWidth;
-    
+
     if (screenWidth < 1000) document.getElementById('explanation-image').src = 'how-it-works-mobile.png';
     else document.getElementById('explanation-image').src = 'how-it-works-pc.png';
 }
 
-portInput.addEventListener('change', function() {
+portInput.addEventListener('change', function () {
     changeCopyCMDText(this.value);
     frameworkSelect.value = 'None';
 });
 
-copycmdInput.addEventListener('click', function() {
+copycmdInput.addEventListener('click', function () {
     this.select();
     document.execCommand('copy');
 });
 
-frameworkSelect.addEventListener('change', function() {
+frameworkSelect.addEventListener('change', function () {
     const platform = this.value;
-    console.log(platform);
 
     switch (platform) {
         case 'Laravel':
@@ -99,4 +99,5 @@ frameworkSelect.addEventListener('change', function() {
 
 function changeCopyCMDText(port) {
     copycmdInput.value = `csgrok http ${port}`;
+    frameworkInfoText.innerText = `${frameworkSelect.value} is running on port ${port} by default`;
 }

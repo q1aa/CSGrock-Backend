@@ -19,7 +19,6 @@ namespace CSGrock
 {
     class Program
     {
-        //create a new main method
         static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
