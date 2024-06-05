@@ -34,7 +34,7 @@ namespace CSGrock.CSGrockLogic.Socket
 
         public static async Task ReceiveMessage(WebSocketConnection socketConnection)
         {
-            var buffer = new byte[1024 * 4];
+            var buffer = new byte[1024 * 20];
 
             while (socketConnection.Socket.State == WebSocketState.Open)
             {
