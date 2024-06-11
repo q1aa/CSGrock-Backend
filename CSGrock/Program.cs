@@ -33,7 +33,10 @@ namespace CSGrock
             StorageUtil.app.UseWebSockets();
             StorageUtil.app.Logger.LogInformation("Socket server started");
 
+            if(!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"))) Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"));
             StorageUtil.app.UseStaticFiles();
+
+            if(!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "UserContent"))) Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "UserContent"));
             StorageUtil.app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "UserContent")),
