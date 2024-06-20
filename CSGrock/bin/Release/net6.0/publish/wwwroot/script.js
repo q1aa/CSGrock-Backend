@@ -90,6 +90,11 @@ frameworkSelect.addEventListener('change', function () {
             portInput.value = '3000';
             changeCopyCMDText('3000');
             break;
+        case 'None':
+            portInput.value = '';
+            copycmdInput.value = 'csgrok';
+            frameworkInfoText.innerText = 'Select a framework to see the default port';
+            break;
         default:
             portInput.value = '8000';
             changeCopyCMDText('8000');
@@ -100,4 +105,9 @@ frameworkSelect.addEventListener('change', function () {
 function changeCopyCMDText(port) {
     copycmdInput.value = `csgrok http ${port}`;
     frameworkInfoText.innerText = `${frameworkSelect.value} is running on port ${port} by default`;
+}
+
+function downloadInstaller() {
+    console.log('Downloading installer...');
+    window.location.href = '/installer.exe';
 }

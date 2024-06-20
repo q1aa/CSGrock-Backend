@@ -52,7 +52,7 @@
                             <option value="React">React</option>
                         </select>
                     </div>
-                    <p id="framework-info-text">Hugo development servers run on port 1313 by default</p>
+                    <p id="framework-info-text">None selected framework, for displaying a default port</p>
                     <div class="port-select">
                         <label for="port-select">Or select your own local port</label>
                         <input type="number" id="port-select" placeholder="Port" />
@@ -64,7 +64,7 @@
                     <div class="download">
                         <label for="download-button">Havent installed yet? Download now</label>
                         <div class="download-button-holder">
-                            <button id="download-button">Download</button>
+                            <button id="download-button" onclick="downloadInstaller()">Download</button>
                             <select name="" id="select-platform">
                                 <option value="">Windows</option>
                                 <option disabled="true">Linux (soon)</option>

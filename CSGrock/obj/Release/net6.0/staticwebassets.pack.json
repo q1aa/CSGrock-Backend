@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\icons8_logo.png"
     },
     {
+      "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\installer.exe",
+      "PackagePath": "staticwebassets\\installer.exe"
+    },
+    {
       "Id": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\script.js",
       "PackagePath": "staticwebassets\\script.js"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TIUfFDWlGo0OY8JkW+J+g+MtK2ZNmkb3/ZZBXyma0uc=",
+  "Hash": "5/N1yuBk0Nnl+tz/4pFuRT3zh5L8wxZZvmgn2NDYHoo=",
   "Source": "CSGrock",
   "BasePath": "_content/CSGrock",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icons8_logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\installer.exe",
+      "SourceId": "CSGrock",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\",
+      "BasePath": "_content/CSGrock",
+      "RelativePath": "installer.exe",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\installer.exe"
     },
     {
       "Identity": "C:\\Users\\Nils Langschmidt\\Documents\\GitHubNew\\CSGrock-Backend\\CSGrock\\wwwroot\\script.js",
